@@ -1,0 +1,22 @@
+package com.combobreaker.combobreaker;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CombosController {
+
+	@Autowired
+	CombosService tasks;
+	
+	@CrossOrigin(origins = "*")
+	@GetMapping("/CombosList")
+	public Iterable<Combos> ShowCombos(){
+		return tasks.getCombos();
+	}
+	
+}

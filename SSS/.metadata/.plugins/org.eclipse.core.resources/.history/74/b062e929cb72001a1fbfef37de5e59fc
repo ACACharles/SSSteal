@@ -1,0 +1,54 @@
+var app = angular.module('gray',[]);
+
+        app.controller('scale1',
+            function($scope,$http){
+            
+            $http.get("/invy").then(
+                     function(response){
+                        if(response.data)
+                            $scope.iNames = response.data;
+                            console.log("good 2");
+                            console.log(response);
+
+                     },
+                     function(response){
+                         console.log("bad 2");
+                         console.log(response);
+                     });
+            
+            
+            });// end scale1
+            
+            
+        app.controller('scale2',
+            function($scope,$http){
+            
+            $scole.addCust = function(){
+            var URL= "/Customer";
+
+            URL +=  "?fn="+$scope.fn +
+                    "&ln="+$scope.ln +
+                    "&pn="+$scope.pn +
+                    "&street="+$scope.street +
+                    "&city="+$scope.city +
+                    "&state="+$scope.state +
+                    "&zip="+$scope.zip;
+                
+            $http.post(URL).then(
+                     function(response){
+                        if(response.data)
+                            $scope.iNames = response.data;
+                            console.log("good 2");
+                            console.log(response);
+
+                     },
+                     function(response){
+                         console.log("bad 2");
+                         console.log(response);
+                     });
+            };
+        }); //  end scale2
+            
+            
+        app.controller('scalefor',
+            function($scope,$http){}); // end scalefor

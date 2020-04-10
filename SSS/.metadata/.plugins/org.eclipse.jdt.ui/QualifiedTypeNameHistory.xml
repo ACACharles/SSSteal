@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.samsteele.store.face.clientTable"/>
+    <fullyQualifiedTypeName name="com.samsteele.store.face.oleTable"/>
+    <fullyQualifiedTypeName name="com.samsteele.store.face.orderTable"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.condition.ConditionMessage.ItemsBuilder"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
+    <fullyQualifiedTypeName name="com.samsteele.store.service.StainlessService"/>
+    <fullyQualifiedTypeName name="com.samsteele.store.model.client"/>
+    <fullyQualifiedTypeName name="com.samsteele.store.model.order"/>
+    <fullyQualifiedTypeName name="com.samsteele.store.model.ole"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+</qualifiedTypeNameHistroy>

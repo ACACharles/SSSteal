@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title>This is a HTML Demo</title>
+    <script src="javascript/angular.min.js"></script>
+        
+        <style>
+        body {
+                color: red;
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    
+    <body ng-app="demo">
+        <div ng-controller="huston">
+            <h1>HELLO Welcome to Angular</h1>
+            
+            <h2>it can do magic</h2>
+            
+            <h4>WitchCraft indeed</h4>
+            
+            <input ng-model="dude" type="text">
+            <br>
+
+               	  <select ng-model="G" ng-options="element.itemname for element in invy"></select>
+                  <br><br>
+                  
+                  <select ng-model="ChoosenGarden" ng-options="element.itemname for element in iNames"></select>
+            
+            <select>
+            <option ng-repeat="e in invy" value={{e.type}}>{{e.type}}</option>
+            </select>
+            
+            <br>
+       Hello {{name}},  I am a NG app.
+            <div></div>
+            <span></span>
+            <select>
+                <option>one</option>
+                <option>2</option>
+                <option>o3ne</option>
+                <option>four</option>
+                <option>V</option>
+                <option>six</option>
+            </select>
+            
+            <ui>
+                <li ng-repeat="element in invy">{{element.itemname}}</li>
+                <li>two</li>
+                <li>three</li>
+                <li>four</li>
+            </ui>
+    
+            <input type="text" ng-model="tester">
+            
+            {{descd(tester)}}
+            {{descd(3)}}
+            
+            {{(invy | filter: {invyID:3})[0].description}}
+            
+                    <br>
+            
+            {{lookUpValue(invy,'invyID',tester,'itemname')}}
+<br>
+            {{lookUpValue(invy,'invyID',tester,'description')}}
+            <br>
+             {{lookUpValue(invy,'invyID',tester,'price') /100 | currency}}
+            
+            
+            
+            <table>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+            </tr>
+
+                <tr  ng-repeat="item in invy">
+                <td>{{item.itemname}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.type}}</td>
+                <td>{{lookUpValue(invy,'invyID',item.invyID,'description')}}</td>
+                <td>{{lookUpValue(invy,'invyID',item.invyID,'itemname')}}</td>
+                    
+                </tr>
+            </table>
+    </div>
+    </body>
+    
+    <script>
+        var app = angular.module('demo',[]);
+        
+        app.controller('huston',function($scope,$http){
+            
+            $scope.name = "Charles";
+            
+            $scope.invy = 
+                [
+                {"invyID":1,"itemname":"Big Knife","price":20000,"description":"A Big Ole Knife","type":"Butcher"},{"invyID":2,"itemname":"Bigger Knife","price":40000,"description":"A Really Big knife","type":"Butcher"},{"invyID":3,"itemname":"Chef 12","price":15000,"description":"Chef 12","type":"Chef"},{"invyID":4,"itemname":"Chef 8","price":10000,"description":"Chef 8 inch","type":"Chef"},{"invyID":5,"itemname":"Chef 15","price":30000,"description":"Chef 15 inch","type":"chef"},{"invyID":6,"itemname":"Dinner fine","price":1000,"description":"dinner siverware","type":"dinner"},{"invyID":7,"itemname":"Dinner fine silver","price":5000,"description":"Great lknife","type":"dinner"}];
+            
+          /*  $http.get("/invy").then(
+                     function(response){
+                        if(response.data)
+                            $scope.iNames = response.data;
+                            console.log("good 2");
+                            console.log(response.data);
+
+                     },
+                     function(response){
+                         console.log("bad 2");
+                         console.log(response);
+                     });*/
+            $scope.iNames = $scope.invy;
+
+            $scope.descd = function(id){
+                var descrip = "2";
+                for(x in $scope.invy){
+                    if(x.invyID == id)
+                        descrip = 888;   
+                    
+                }
+                return descrip;
+            }
+            
+    $scope.lookUpValue =  function findBySpecField(data, reqField, value, resField) {
+                    var container = data;
+                    for (var i = 0; i < container.length; i++) {
+                        if (container[i][reqField] == value) {
+                        return(container[i][resField]);
+                        }
+                    }
+                    return '';
+                }
+    
+        });//close controller
+    
+    </script>
+</html>
+    
